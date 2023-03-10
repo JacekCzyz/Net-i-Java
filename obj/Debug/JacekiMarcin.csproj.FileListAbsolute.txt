@@ -1,0 +1,8 @@
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\bin\Debug\JacekiMarcin.exe.config
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\bin\Debug\JacekiMarcin.exe
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\bin\Debug\JacekiMarcin.pdb
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\obj\Debug\JacekiMarcin.csproj.AssemblyReference.cache
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\obj\Debug\JacekiMarcin.csproj.SuggestedBindingRedirects.cache
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\obj\Debug\JacekiMarcin.csproj.CoreCompileInputs.cache
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\obj\Debug\JacekiMarcin.exe
+C:\Users\student\Desktop\example-app\JacekiMarcin\JacekiMarcin\obj\Debug\JacekiMarcin.pdb
