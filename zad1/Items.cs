@@ -11,7 +11,5 @@ namespace JacekiMarcin{
             this.weight = weight;
             this.worth = worth;
         }
-
-
     }
 }
