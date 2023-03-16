@@ -36,9 +36,6 @@ namespace JacekiMarcin
 
         public void add_items(List<Items> item)
         {
-           // inside.Add(item);
-
-
             int j = 0;
             while (this.is_full() != 1 && j != item.Count) //putting items into backpack
             {

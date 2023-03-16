@@ -28,7 +28,7 @@ namespace JacekiMarcin{
             }
 
             storage.add_items(Przedmiot);
-
+            Console.WriteLine("");
             for(int k=0; k < storage.inside.Count; k++)
             {
                 Console.WriteLine(storage.inside[k].worth + "    " + storage.inside[k].weight);

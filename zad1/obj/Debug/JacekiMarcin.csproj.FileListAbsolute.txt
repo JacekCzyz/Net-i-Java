@@ -14,3 +14,11 @@ C:\Users\user\Source\Repos\JacekCzyz\Net-i-Java\zad1\obj\Debug\JacekiMarcin.pdb
 C:\Users\user\Source\Repos\JacekCzyz\Net-i-Java\zad1\bin\Debug\JacekiMarcin.exe.config
 C:\Users\user\Source\Repos\JacekCzyz\Net-i-Java\zad1\bin\Debug\JacekiMarcin.exe
 C:\Users\user\Source\Repos\JacekCzyz\Net-i-Java\zad1\bin\Debug\JacekiMarcin.pdb
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\bin\Debug\JacekiMarcin.exe.config
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\bin\Debug\JacekiMarcin.exe
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\bin\Debug\JacekiMarcin.pdb
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\obj\Debug\JacekiMarcin.csproj.AssemblyReference.cache
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\obj\Debug\JacekiMarcin.csproj.SuggestedBindingRedirects.cache
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\obj\Debug\JacekiMarcin.csproj.CoreCompileInputs.cache
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\obj\Debug\JacekiMarcin.exe
+C:\Users\jacek\Source\Repos\Net-i-Java\zad1\obj\Debug\JacekiMarcin.pdb
