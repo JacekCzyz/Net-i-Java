@@ -45,6 +45,11 @@ namespace JacekiMarcin
                 j++;
             }
         }
+
+        public bool IsEmpty()
+        {
+            return inside.Count == 0;
+        }
     }
 }
 
