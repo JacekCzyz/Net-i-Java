@@ -51,6 +51,26 @@ namespace JacekiMarcin
             return inside.Count == 0;
         }
     }
+    //Od Marcina
+     public int pokazWartosc()
+        {
+            int wart = 0;
+            for(int i = 0; i < inside.Count(); i++)
+            {
+                wart += inside[i].worth;
+            }
+            return wart;
+        }
+
+        public int pokazWage()
+        {
+            int waga = 0;
+            for (int i = 0; i < inside.Count(); i++)
+            {
+                waga += inside[i].weight;
+            }
+            return waga;
+        }
 }
 
 
