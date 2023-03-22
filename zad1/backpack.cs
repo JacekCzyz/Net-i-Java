@@ -9,7 +9,7 @@ namespace JacekiMarcin
     internal class Backpack
     {
         public int weight_limit;
-        public List <Items> inside = new List <Items>();
+        public List<Items> inside = new List<Items>();
         public Backpack(int limit)
         {
             this.weight_limit = limit;
@@ -17,8 +17,8 @@ namespace JacekiMarcin
 
         public int is_full()
         {
-            int sum=0;
-            for(int i=0; i<inside.Count(); i++) {
+            int sum = 0;
+            for (int i = 0; i < inside.Count(); i++) {
                 sum += inside[i].weight;
             }
 
@@ -49,6 +49,27 @@ namespace JacekiMarcin
         public bool IsEmpty()
         {
             return inside.Count == 0;
+        }
+
+
+        public int ShowWorth()
+        {
+            int sum = 0;
+            for (int i = 0; i<inside.Count(); i++) 
+            {
+                sum += inside[i].worth;
+            }
+            return sum;
+        }
+
+        public int ShowWeight()
+        {
+            int sum = 0;
+            for (int i = 0; i < inside.Count(); i++)
+            {
+                sum += inside[i].weight;
+            }
+            return sum;
         }
     }
 }
