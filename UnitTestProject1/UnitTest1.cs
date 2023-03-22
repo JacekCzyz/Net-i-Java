@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using JacekiMarcin;
 using System.Collections.Generic;
@@ -51,23 +51,20 @@ namespace UnitTestProject1
 
             Assert.AreEqual(test_backpack.inside.Count, 0);
         }
-         //Te sa od marcina. trzeba poprawic nazwy
-        
-            [TestClass]
-    public class UnitTest1
-    {
+
+
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla pustego plecaka.
         [TestMethod]
-        public void TestMethod1()
-        {                      
+        public void TestMethod4()
+        {
             Backpack backpack = new Backpack(0);
-            bool Pusty = backpack.czyPusty();
+            bool Pusty = backpack.IsEmpty();
             Assert.IsTrue(Pusty);
         }
 
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla plecaka, w którym przedmioty mają różne wagi i wartości.
         [TestMethod]
-        public void TestMethod2()
+        public void TestMethod5()
         {
             List<Items> list = new List<Items>();
             list.Add(new Items(2, 15));
@@ -75,8 +72,8 @@ namespace UnitTestProject1
             Backpack backpack = new Backpack(3);
             backpack.add_items(list);
 
-            int warto = backpack.pokazWartosc();
-            int wag = backpack.pokazWage();
+            int warto = backpack.ShowWorth();
+            int wag = backpack.ShowWeight();
 
             Assert.AreEqual(25, warto);
             Assert.AreEqual(3, wag);
@@ -87,7 +84,7 @@ namespace UnitTestProject1
 
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik, gdy plecak może pomieścić tylko część przedmiotów.
         [TestMethod]
-        public void TestMethod3()
+        public void TestMethod6()
         {
             List<Items> list = new List<Items>();
             list.Add(new Items(2, 15));
@@ -95,8 +92,8 @@ namespace UnitTestProject1
             Backpack backpack = new Backpack(2);
             backpack.add_items(list);
 
-            int warto = backpack.pokazWartosc();
-            int wag = backpack.pokazWage();
+            int warto = backpack.ShowWorth();
+            int wag = backpack.ShowWeight();
 
             Assert.AreEqual(15, warto);
             Assert.AreEqual(2, wag);
@@ -104,26 +101,28 @@ namespace UnitTestProject1
 
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla dużych zestawów danych, które mogą powodować przeciążenia pamięci.
         [TestMethod]
-        public void TestMethod4()
+        public void TestMethod7()
         {
+            int expected_weight = 0;
+            int expected_worth = 0;
             List<Items> list = new List<Items>();
             for (int i = 0; i < 20; i++)
             {
                 for (int j = 0; j < 20; j++)
                 {
                     list.Add(new Items(i, j));
+                    expected_weight+=i;
+                    expected_worth+=j;
                 }
             }
             Backpack backpack = new Backpack(8000);
             backpack.add_items(list);
 
-            int warto = backpack.pokazWartosc();
-            int wag = backpack.pokazWage();
+            int actual_worth = backpack.ShowWorth();
+            int actual_weight = backpack.ShowWeight();
 
-            Assert.AreEqual(15, warto);
-            Assert.AreEqual(2, wag);
+            Assert.AreEqual(expected_worth, actual_worth);
+            Assert.AreEqual(expected_weight, actual_weight);
         }
-    }
-}
     }
 }
