@@ -57,8 +57,8 @@ namespace UnitTestProject1
         public void TestMethod4()
         {
             Backpack backpack = new Backpack(0);
-            bool Pusty = backpack.IsEmpty();
-            Assert.IsTrue(Pusty);
+            bool Empty = backpack.IsEmpty();
+            Assert.IsTrue(Empty);
         }
 
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla plecaka, w którym przedmioty mają różne wagi i wartości.
@@ -71,11 +71,11 @@ namespace UnitTestProject1
             Backpack backpack = new Backpack(3);
             backpack.add_items(list);
 
-            int warto = backpack.ShowWorth();
-            int wag = backpack.ShowWeight();
+            int worth = backpack.ShowWorth();
+            int weight = backpack.ShowWeight();
 
-            Assert.AreEqual(25, warto);
-            Assert.AreEqual(3, wag);
+            Assert.AreEqual(25, worth);
+            Assert.AreEqual(3, weight);
 
 
         }
@@ -91,11 +91,11 @@ namespace UnitTestProject1
             Backpack backpack = new Backpack(2);
             backpack.add_items(list);
 
-            int warto = backpack.ShowWorth();
-            int wag = backpack.ShowWeight();
+            int worth = backpack.ShowWorth();
+            int weight = backpack.ShowWeight();
 
-            Assert.AreEqual(15, warto);
-            Assert.AreEqual(2, wag);
+            Assert.AreEqual(15, worth);
+            Assert.AreEqual(2, weight);
         }
 
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla dużych zestawów danych, które mogą powodować przeciążenia pamięci.
