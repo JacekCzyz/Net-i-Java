@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace JacekiMarcin{
-    internal class Generator{
+    public class Generator{
         Random random;
 
         public Generator(int seed){

@@ -26,9 +26,5 @@ namespace Plecak_okno
             textBox4.Text = seed.ToString();
         }
 
-
-        
-
-
     }
 }

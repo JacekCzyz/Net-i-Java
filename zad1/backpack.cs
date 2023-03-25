@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JacekiMarcin
 {
-    internal class Backpack
+    public class Backpack
     {
         public int weight_limit;
         public List<Items> inside = new List<Items>();

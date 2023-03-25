@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JacekiMarcin{
-    internal class Items{
+    public class Items{
         public int weight, worth;
         public Items(int weight, int worth){
             this.weight = weight;

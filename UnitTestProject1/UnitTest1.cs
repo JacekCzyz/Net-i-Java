@@ -6,11 +6,10 @@ using System.Collections.Generic;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestPlecak
     {
         [TestMethod]
-
-        public void TestMethod1()   //test sprawdza czy cos w plecaku jesli min jeden element spelnia ograniczenie
+        public void TestInit()   //test czy inicjowany plecak jest pusty
         {
             Backpack test_backpack = new Backpack(0);
             bool Empty = test_backpack.IsEmpty();
@@ -21,9 +20,9 @@ namespace UnitTestProject1
 
 
         [TestMethod]
-        public void TestMethod2()   //test czy inicjowany plecak jest pusty
+        public void TestMinOne()   //test sprawdza czy cos w plecaku jesli min jeden element spelnia ograniczenie
         {
-            List<Items> list = new List<Items>();
+            List<Items> list = new List<Items>();   
             list.Add(new Items(2, 15));
             for(int i=0; i<10;  i++) 
             {
@@ -38,7 +37,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestMethod3()  //test sprawdza czy plecak pusty jeśli żaden element nie spełnia ograniczenia
+        public void TestTooHeavy()  //test sprawdza czy plecak pusty jeśli żaden element nie spełnia ograniczenia
         {
             List<Items> list = new List<Items>();
             for (int i = 0; i < 10; i++)
@@ -52,18 +51,9 @@ namespace UnitTestProject1
             Assert.AreEqual(test_backpack.inside.Count, 0);
         }
 
-        //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla pustego plecaka.
-        [TestMethod]
-        public void TestMethod4()
-        {
-            Backpack backpack = new Backpack(0);
-            bool Empty = backpack.IsEmpty();
-            Assert.IsTrue(Empty);
-        }
-
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla plecaka, w którym przedmioty mają różne wagi i wartości.
         [TestMethod]
-        public void TestMethod5()
+        public void TestDiffItems()
         {
             List<Items> list = new List<Items>();
             list.Add(new Items(2, 15));
@@ -83,24 +73,26 @@ namespace UnitTestProject1
 
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik, gdy plecak może pomieścić tylko część przedmiotów.
         [TestMethod]
-        public void TestMethod6()
+        public void TestPartial()
         {
             List<Items> list = new List<Items>();
             list.Add(new Items(2, 15));
             list.Add(new Items(1, 10));
-            Backpack backpack = new Backpack(2);
+            list.Add(new Items(3, 10));
+            list.Add(new Items(5, 10));
+            Backpack backpack = new Backpack(3);
             backpack.add_items(list);
 
             int worth = backpack.ShowWorth();
             int weight = backpack.ShowWeight();
 
-            Assert.AreEqual(15, worth);
-            Assert.AreEqual(2, weight);
+            Assert.AreEqual(25, worth);
+            Assert.AreEqual(3, weight);
         }
 
         //Test sprawdzający, czy funkcja zwraca oczekiwany wynik dla dużych zestawów danych, które mogą powodować przeciążenia pamięci.
         [TestMethod]
-        public void TestMethod7()
+        public void TestCRAZYAMOUNT()
         {
             int expected_weight = 0;
             int expected_worth = 0;
