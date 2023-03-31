@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Baza_Danych
+namespace Zad_BazaDanych
 {
     internal static class Program
     {

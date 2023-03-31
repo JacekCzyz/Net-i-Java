@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("Baza_Danych")]
+[assembly: AssemblyTitle("Zad_BazaDanych")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Baza_Danych")]
+[assembly: AssemblyProduct("Zad_BazaDanych")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Następujący identyfikator GUID jest identyfikatorem biblioteki typów w przypadku udostępnienia tego projektu w modelu COM
-[assembly: Guid("c4672397-4f3e-4092-8853-8456d5910e0e")]
+[assembly: Guid("bd0a5202-9cc9-449d-9291-9fbf238a818c")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
 //

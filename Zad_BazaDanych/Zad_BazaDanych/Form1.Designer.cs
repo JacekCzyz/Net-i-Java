@@ -1,4 +1,4 @@
-﻿namespace Baza_Danych
+﻿namespace Zad_BazaDanych
 {
     partial class Form1
     {

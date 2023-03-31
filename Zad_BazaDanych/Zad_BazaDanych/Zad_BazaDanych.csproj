@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C4672397-4F3E-4092-8853-8456D5910E0E}</ProjectGuid>
+    <ProjectGuid>{BD0A5202-9CC9-449D-9291-9FBF238A818C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Baza_Danych</RootNamespace>
-    <AssemblyName>Baza_Danych</AssemblyName>
+    <RootNamespace>Zad_BazaDanych</RootNamespace>
+    <AssemblyName>Zad_BazaDanych</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

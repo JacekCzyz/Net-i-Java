@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Baza_Danych.Properties
+namespace Zad_BazaDanych.Properties
 {
 
 
