@@ -42,7 +42,6 @@ namespace LAB_API
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("tdudsdsd");
             string from_currency = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
             string to_currency = ((KeyValuePair<string, string>)comboBox2.SelectedItem).Key;
             double amount = double.Parse(textBox1.Text);
