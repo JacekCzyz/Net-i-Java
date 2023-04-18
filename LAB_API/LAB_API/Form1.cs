@@ -1,10 +1,11 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,15 @@ namespace LAB_API
 {
     public partial class Form1 : Form
     {
+        private Rates_db rates;  
+
         Currencies currency;
         public Form1()
         {
             InitializeComponent();
             currency = new Currencies();
             currency.Fill_Mone();
+            rates = new Rates_db();
             fill_combobox();
         }
 
@@ -46,6 +50,16 @@ namespace LAB_API
             string to_currency = ((KeyValuePair<string, string>)comboBox2.SelectedItem).Key;
             double amount = double.Parse(textBox1.Text);
             double converted=currency.Convert(from_currency, to_currency, amount);
+
+            rates.Curency_rates.Add(new Rates { from = from_currency, to = to_currency, rate = (converted / amount) });
+            rates.SaveChanges();
+
+            var students = (from s in rates.Curency_rates select s).ToList<Rates>();
+            foreach (var st in students)
+            {
+                Console.WriteLine("ID: {0}, Name: {1}, Avg: {2}, dsds:{3}", st.ID, st.from, st.to, st.rate);
+            }
+
             textBox2.Text = converted.ToString();
         }
 
