@@ -50,6 +50,7 @@ namespace LAB_API
             string to_currency = ((KeyValuePair<string, string>)comboBox2.SelectedItem).Key;
             double amount = double.Parse(textBox1.Text);
             double converted=currency.Convert(from_currency, to_currency, amount);
+            textBox2.Text = converted.ToString();
 
             rates.Curency_rates.Add(new Rates { from = from_currency, to = to_currency, rate = (converted / amount) });
             rates.SaveChanges();
@@ -59,8 +60,8 @@ namespace LAB_API
             {
                 Console.WriteLine("ID: {0}, Name: {1}, Avg: {2}, dsds:{3}", st.ID, st.from, st.to, st.rate);
             }
+            Console.ReadLine();
 
-            textBox2.Text = converted.ToString();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
