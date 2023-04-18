@@ -60,5 +60,12 @@ namespace LAB_API
             string selected_key = comboBox2.SelectedValue.ToString();
             string selected_value = comboBox2.Text;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string temp = comboBox1.Text;
+            comboBox1.Text = comboBox2.Text;
+            comboBox2.Text = temp;
+        }
     }
 }

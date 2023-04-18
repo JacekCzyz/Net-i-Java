@@ -32,3 +32,7 @@ C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\bin\Debug\System.ValueTuple.xml
 C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\obj\Debug\LAB_API.csproj.CopyComplete
 C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\obj\Debug\LAB_API.exe
 C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\obj\Debug\LAB_API.pdb
+C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\bin\Debug\EntityFramework.dll
+C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\bin\Debug\EntityFramework.xml
+C:\Users\jacek\source\repos\Net\LAB_API\LAB_API\bin\Debug\EntityFramework.SqlServer.xml
