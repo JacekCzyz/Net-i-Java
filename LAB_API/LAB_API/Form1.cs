@@ -25,7 +25,11 @@ namespace LAB_API
             currency = new Currencies();
             currency.Fill_Mone();
             rates = new Rates_db();
+/*          rates.Curency_rates.RemoveRange(rates.Curency_rates);
+            rates.SaveChanges();
+            rates.Database.ExecuteSqlCommand("TRUNCATE TABLE [Rates]");*/
             fill_combobox();
+            fill_listbox();
         }
 
 
@@ -44,24 +48,35 @@ namespace LAB_API
             comboBox2.ValueMember = "key";
         }
 
+        private void fill_listbox() {
+            var rate = (from s in rates.Curency_rates select s).ToList<Rates>();
+            foreach (var st in rate) {
+                listBox1.Items.Add(String.Format("ID: {0}, From: {1}, To: {2}, Rate:{3}", st.ID, st.from, st.to, st.rate));
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             string from_currency = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
             string to_currency = ((KeyValuePair<string, string>)comboBox2.SelectedItem).Key;
             double amount = double.Parse(textBox1.Text);
-            double converted=currency.Convert(from_currency, to_currency, amount);
-            textBox2.Text = converted.ToString();
+            double converted = 0;
 
-            rates.Curency_rates.Add(new Rates { from = from_currency, to = to_currency, rate = (converted / amount) });
-            rates.SaveChanges();
+            if (rates.Curency_rates.Any(r => r.from == from_currency && r.to == to_currency)) {
+                MessageBox.Show("Conversion rate already exists in database.");
 
-            var students = (from s in rates.Curency_rates select s).ToList<Rates>();
-            foreach (var st in students)
-            {
-                Console.WriteLine("ID: {0}, Name: {1}, Avg: {2}, dsds:{3}", st.ID, st.from, st.to, st.rate);
+                var rate = rates.Curency_rates.FirstOrDefault(r => r.from == from_currency && r.to == to_currency);
+                converted = amount * rate.rate;
+                textBox2.Text = converted.ToString();               
             }
-            Console.ReadLine();
 
+            else {
+                converted = currency.Convert(from_currency, to_currency, amount);
+                textBox2.Text = converted.ToString();
+                rates.Curency_rates.Add(new Rates { from = from_currency, to = to_currency, rate = (converted / amount) });
+                rates.SaveChanges();
+                listBox1_SelectedIndexChanged(sender, e);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +96,14 @@ namespace LAB_API
             string temp = comboBox1.Text;
             comboBox1.Text = comboBox2.Text;
             comboBox2.Text = temp;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            listBox1.Items.Clear();
+            var rate = (from s in rates.Curency_rates select s).ToList<Rates>();
+            foreach (var st in rate) {
+                listBox1.Items.Add(String.Format("ID: {0}, From: {1}, To: {2}, Rate:{3}", st.ID, st.from, st.to, st.rate));
+            }
         }
     }
 }
