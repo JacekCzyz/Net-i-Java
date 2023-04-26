@@ -59,24 +59,32 @@ namespace LAB_API
         {
             string from_currency = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
             string to_currency = ((KeyValuePair<string, string>)comboBox2.SelectedItem).Key;
-            double amount = double.Parse(textBox1.Text);
-            double converted = 0;
+            int number;
+            if (int.TryParse(textBox1.Text, out number))
+            {
+                double amount = double.Parse(textBox1.Text);
+                double converted = 0;
 
-            if (rates.Curency_rates.Any(r => r.from == from_currency && r.to == to_currency)) {
-                MessageBox.Show("Conversion rate already exists in database.");
+                if (rates.Curency_rates.Any(r => r.from == from_currency && r.to == to_currency))
+                {
+                    MessageBox.Show("Conversion rate already exists in database.");
 
-                var rate = rates.Curency_rates.FirstOrDefault(r => r.from == from_currency && r.to == to_currency);
-                converted = amount * rate.rate;
-                textBox2.Text = converted.ToString();               
+                    var rate = rates.Curency_rates.FirstOrDefault(r => r.from == from_currency && r.to == to_currency);
+                    converted = amount * rate.rate;
+                    textBox2.Text = converted.ToString();
+                }
+
+                else
+                {
+                    converted = currency.Convert(from_currency, to_currency, amount);
+                    textBox2.Text = converted.ToString();
+                    rates.Curency_rates.Add(new Rates { from = from_currency, to = to_currency, rate = (converted / amount) });
+                    rates.SaveChanges();
+                    listBox1_SelectedIndexChanged(sender, e);
+                }
             }
-
-            else {
-                converted = currency.Convert(from_currency, to_currency, amount);
-                textBox2.Text = converted.ToString();
-                rates.Curency_rates.Add(new Rates { from = from_currency, to = to_currency, rate = (converted / amount) });
-                rates.SaveChanges();
-                listBox1_SelectedIndexChanged(sender, e);
-            }
+            else
+                MessageBox.Show("Amount must be a digit");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
