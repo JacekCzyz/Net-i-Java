@@ -1,0 +1,14 @@
+C:\Users\X\source\repos\Threads2\Threads2\bin\Debug\Threads2.exe.config
+C:\Users\X\source\repos\Threads2\Threads2\bin\Debug\Threads2.exe
+C:\Users\X\source\repos\Threads2\Threads2\bin\Debug\Threads2.pdb
+C:\Users\X\source\repos\Threads2\Threads2\bin\Debug\System.Drawing.Common.dll
+C:\Users\X\source\repos\Threads2\Threads2\bin\Debug\System.Drawing.Common.xml
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.csproj.AssemblyReference.cache
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.csproj.SuggestedBindingRedirects.cache
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.Properties.Resources.resources
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.csproj.GenerateResource.cache
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.csproj.CoreCompileInputs.cache
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.csproj.CopyComplete
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.exe
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.pdb
+C:\Users\X\source\repos\Threads2\Threads2\obj\Debug\Threads2.Form1.resources
