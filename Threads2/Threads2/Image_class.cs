@@ -51,5 +51,32 @@ namespace Threads2
                 this.image = bitmap;                
             }
         }
+
+        public int negatyw(int bitmap[][], int  width, int height, int grey) {
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    bitmap[i][j] = grey - bitmap[i][j];
+                }
+            }
+        }
+
+        public int progowanie(int bitmap[][], int width, int height, int prog, int grey) {
+            for(int i = 0;i < height;i++) {
+                for( int j = 0; j < width;j++) {
+                    if (bitmap[i][j] <= (prog * 0.01 * grey))
+                        bitmap[i][j] = 0;
+                    else
+                        bitmap[i][j] = grey;
+                }
+            }
+        }
+
+        public int konturowanie(int bitmap[][], int width, int height) {
+            for(int i=0;i<height;i++) {
+                for(int j = 0; j < width; j++) {
+                    bitmap[i][j] = (Math.Abs(bitmap[i + 1][j] - bitmap[i][j]) + (Math.Abs(bitmap[i][j + 1] - bitmap[i][j]));
+                }
+            }
+        }
      }
 }
