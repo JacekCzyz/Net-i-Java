@@ -18,17 +18,8 @@ namespace Threads2 {
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
 
-            Bitmap image = LoadPgmImage("kubus.pgm");
-            //Bitmap image = new Bitmap(@"C:\\Users\\X\\source\\kubus.pgm", true);
-/*            int x, y;
-            for (x = 0; x < image.Width; x++) {
-                for (y = 0; y < image.Height; y++) {
-                    Color pixelColor = image.GetPixel(x, y);
-                    Color newColor = Color.FromArgb(pixelColor.R, 0, 0);
-                    image.SetPixel(x, y, newColor);
-                }
-            }*/
-            //pictureBox1.Image = OpenPgmImage("kubus.pgm");
+            Bitmap image = LoadPgmImage("C:\\Users\\jacek\\source\\repos\\Net\\Threads2\\Threads2\\kubus2.pgm");
+
 
             // Create a new form and picture box
             Form form = new Form();
@@ -57,7 +48,7 @@ namespace Threads2 {
                 // Read image size
                 var sizeLine = reader.ReadLine().Split(' ');
                 var width = int.Parse(sizeLine[0]);
-                var height = int.Parse(sizeLine[1]);
+                var height = int.Parse(sizeLine[2]);
                 Console.WriteLine("Width: {0}, Height: {1}", width, height);
 
                 // Read maximum color value
@@ -68,13 +59,15 @@ namespace Threads2 {
                 // Read image data
                 var bitmap = new Bitmap(width, height);
                 for (int y = 0; y < height; y++) {
-                    for (int x = 0; x < width; x++) {
-                        var pixelValueLine = reader.ReadLine();
-                        Console.WriteLine("Pixel value line at ({0},{1}): {2}", x, y, pixelValueLine);
-                        var pixelValue = int.Parse(pixelValueLine);
+                    var pixelValueLine = reader.ReadLine().Split(' ');
+                    int counter = 0;
+                    for (int x = 0; x < width; x++)
+                    {
+                        var pixelValue = int.Parse(pixelValueLine[counter]);
                         var colorValue = (int)(pixelValue / (double)maxColorValue * 255);
                         var color = Color.FromArgb(colorValue, colorValue, colorValue);
                         bitmap.SetPixel(x, y, color);
+                        counter += 2;
                     }
                 }
 
