@@ -7,6 +7,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Threads2
 {
@@ -15,28 +17,32 @@ namespace Threads2
         public Bitmap image { get; set; }
         public int max_color;
 
+        public Image_class()
+        {}
+
+        public Image_class(Image_class name)
+        {
+            this.image = new Bitmap(name.image);
+            this.max_color = name.max_color;
+        }
         public void LoadPgmImage(string filePath)
         {
             using (var reader = new StreamReader(filePath))
             {
-                // PGM format header
                 var firstLine = reader.ReadLine();
                 if (!firstLine.StartsWith("P2"))
                 {
                     throw new ArgumentException("Invalid PGM format.");
                 }
 
-                // Read image size
                 var sizeLine = reader.ReadLine().Split(' ');
                 var width = int.Parse(sizeLine[0]);
                 var height = int.Parse(sizeLine[2]);
 
-                // Read maximum color value
                 var maxColorValueLine = reader.ReadLine();
                 var maxColorValue = int.Parse(maxColorValueLine);
                 this.max_color = maxColorValue;
 
-                // Read image data
                 var bitmap = new Bitmap(width, height);
                 for (int y = 0; y < height; y++)
                 {
@@ -61,14 +67,11 @@ namespace Threads2
             {
                 for (int j = 0; j < width; j++)
                 {
-                    lock(this)
-                    {
                         int r = this.image.GetPixel(j, i).R; //one is enough, because R=G=B
                         var Rval = (int)(this.max_color - r);
 
                         var negat_color = System.Drawing.Color.FromArgb(Rval, Rval, Rval);
                         temp.SetPixel(j, i, negat_color);
-                    }
                 }
             }
         }
@@ -77,8 +80,6 @@ namespace Threads2
             for (int i = 0;i < height; i++)
             {
                 for (int j = 0; j < width; j++) {
-                    lock(this)
-                    {
                         int r = this.image.GetPixel(j, i).R;
                         if (r <= (prog * 0.01 * this.max_color))
                         {
@@ -90,7 +91,6 @@ namespace Threads2
                             var color = System.Drawing.Color.FromArgb(this.max_color, this.max_color, this.max_color);
                             temp.SetPixel(j, i, color);
                         }
-                    }
                 }
             }
         }
@@ -101,8 +101,7 @@ namespace Threads2
             {
                 for (int j = 0; j < width; j++)
                 {
-                    lock (this)
-                    {
+
                         int r = this.image.GetPixel(j, i).R;
                         if (r >= (prog * 0.01 * this.max_color))
                         {
@@ -114,7 +113,6 @@ namespace Threads2
                             var color = System.Drawing.Color.FromArgb(this.max_color, this.max_color, this.max_color);
                             temp.SetPixel(j, i, color);
                         }
-                    }
                 }
             }
         }
@@ -126,8 +124,6 @@ namespace Threads2
             {
                 for(int j = 0; j < width; j++)
                 {
-                    lock (this)
-                    {
                         int cur_checked = this.image.GetPixel(j, i).R;
                         int result_r;
                         if (i < this.image.Height - 1 && j < this.image.Width - 1) /*konturowanie piskeli "w srodku" tablicy - porownanie z pikselem po prawej i ponizej*/
@@ -178,7 +174,6 @@ namespace Threads2
                                 temp.SetPixel(j, i, color);
                             }
                         }
-                    }
                 }
             }
         } 

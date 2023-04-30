@@ -20,9 +20,12 @@ namespace Threads2 {
         {
 
             Image_class Picture = new Image_class();
-            Picture.LoadPgmImage("C:\\Users\\jacek\\source\\repos\\Net\\Threads2\\Threads2\\kubus4.pgm");
+            Picture.LoadPgmImage("C:\\Users\\jacek\\source\\repos\\Net\\Threads2\\Threads2\\dog2.pgm"); //duzy obraz, wychodzi poza picture boxy. mniejszy - kubus2.pgm
             int height = Picture.image.Height;
             int width = Picture.image.Width;
+
+
+
 
             Bitmap negat = new Bitmap(Picture.image.Width, Picture.image.Height);
             Bitmap down = new Bitmap(Picture.image.Width, Picture.image.Height);
@@ -31,14 +34,22 @@ namespace Threads2 {
 
             DateTime start = DateTime.UtcNow;
 
+
+            Picture.Contour(cont, height, width);
             Picture.negative(negat, height, width);
             Picture.down_filter(down, 50, height, width);
             Picture.up_filter(up, 50, height, width);
-            Picture.Contour(cont, height, width);
+
+            DateTime end = DateTime.UtcNow;
+            TimeSpan duration = end - start;
+            textBox1.Text = duration.TotalMilliseconds.ToString();
+
+
+
 
             pictureBox1.Size = Picture.image.Size;
-            pictureBox1.Image = Picture.image;
-
+            pictureBox1.Image = Picture.image; 
+            
             pictureBox2.Size = negat.Size;
             pictureBox2.Image = negat;
 
@@ -51,18 +62,25 @@ namespace Threads2 {
             pictureBox5.Size = cont.Size;
             pictureBox5.Image = cont;
 
-            DateTime end = DateTime.UtcNow;
-            TimeSpan duration = end - start;
-            textBox1.Text = duration.TotalMilliseconds.ToString();
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Image_class Picture = new Image_class();
-            Picture.LoadPgmImage("C:\\Users\\jacek\\source\\repos\\Net\\Threads2\\Threads2\\kubus4.pgm");
+
+
+
+
+
+            Picture.LoadPgmImage("C:\\Users\\jacek\\source\\repos\\Net\\Threads2\\Threads2\\dog2.pgm");
             int height = Picture.image.Height;
             int width = Picture.image.Width;
 
+            Image_class Picture_neg = new Image_class(Picture);
+            Image_class Picture_up = new Image_class(Picture);
+            Image_class Picture_down = new Image_class(Picture);
 
 
             Bitmap negat = new Bitmap(Picture.image.Width, Picture.image.Height);
@@ -72,10 +90,11 @@ namespace Threads2 {
 
             Thread[] t = new Thread[4];
 
-            t[0] = new Thread(() => Picture.negative(negat, height, width));
-            t[1] = new Thread(() => Picture.Contour(cont, height, width));
-            t[2] = new Thread(() => Picture.up_filter(up, 50, height, width));
-            t[3] = new Thread(() => Picture.down_filter(down, 50, height, width));
+            t[0] = new Thread(() => Picture_neg.negative(negat, height, width));
+            t[1] = new Thread(() => Picture_up.up_filter(up, 50, height, width));
+            t[2] = new Thread(() => Picture_down.down_filter(down, 50, height, width));
+            t[3] = new Thread(() => Picture.Contour(cont, height, width));
+
 
             DateTime start = DateTime.UtcNow;
 
@@ -83,7 +102,8 @@ namespace Threads2 {
                 t[i].Start();
             }
 
-            for(int i = 0; i < 4; i++) {
+
+            for (int i = 0; i < 4; i++) {
                 t[i].Join();
             }
 
@@ -105,6 +125,12 @@ namespace Threads2 {
 
             pictureBox5.Size = cont.Size;
             pictureBox5.Image = cont;
+
+
+            //DateTime end = DateTime.UtcNow;
+            //TimeSpan duration = end - start;
+            //textBox1.Text = duration.TotalMilliseconds.ToString();
+
         }
     }
 }
