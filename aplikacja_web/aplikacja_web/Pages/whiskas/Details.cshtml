@@ -1,0 +1,37 @@
+﻿@page
+@model aplikacja_web.Pages.whiskas.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>whisky</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.whisky.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.whisky.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.whisky.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.whisky.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.whisky.voltage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.whisky.voltage)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.whisky?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

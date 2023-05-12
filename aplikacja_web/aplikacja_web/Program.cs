@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using aplikacja_web.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<aplikacja_webContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("aplikacja_webContext") ?? throw new InvalidOperationException("Connection string 'aplikacja_webContext' not found.")));
 
 var app = builder.Build();
 

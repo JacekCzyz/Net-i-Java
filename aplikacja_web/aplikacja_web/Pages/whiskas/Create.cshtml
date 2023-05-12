@@ -1,0 +1,44 @@
+﻿@page
+@model aplikacja_web.Pages.whiskas.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>whisky</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="whisky.Name" class="control-label"></label>
+                <input asp-for="whisky.Name" class="form-control" />
+                <span asp-validation-for="whisky.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="whisky.Country" class="control-label"></label>
+                <input asp-for="whisky.Country" class="form-control" />
+                <span asp-validation-for="whisky.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="whisky.voltage" class="control-label"></label>
+                <input asp-for="whisky.voltage" class="form-control" />
+                <span asp-validation-for="whisky.voltage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

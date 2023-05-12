@@ -32,6 +32,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jacek/source/repos/Net/aplikacja_web/aplikacja_web/Pages/whiskas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2hpc2thc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jacek/source/repos/Net/aplikacja_web/aplikacja_web/Pages/whiskas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2hpc2thc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jacek/source/repos/Net/aplikacja_web/aplikacja_web/Pages/whiskas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2hpc2thc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jacek/source/repos/Net/aplikacja_web/aplikacja_web/Pages/whiskas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2hpc2thc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jacek/source/repos/Net/aplikacja_web/aplikacja_web/Pages/whiskas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2hpc2thc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jacek/source/repos/Net/aplikacja_web/aplikacja_web/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
