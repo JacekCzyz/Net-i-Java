@@ -1,0 +1,59 @@
+﻿@page
+@model Aplikacja_webowa2.Pages.Muzyka.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Music</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Music.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Music.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Music.Album)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Music.Album)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Music.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Music.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Music.ReleaseYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Music.ReleaseYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Music.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Music.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Music.Link)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Music.Link)
+        </dd>
+    </dl>
+</div>
+
+<iframe width="560" height="315" src="@Model.Music.Link" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Music?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

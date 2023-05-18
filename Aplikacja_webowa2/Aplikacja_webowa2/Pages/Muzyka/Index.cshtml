@@ -1,0 +1,77 @@
+﻿@page
+@model Aplikacja_webowa2.Pages.Muzyka.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form method="get" asp-page-handler="OnGetAsync">
+    <p>
+        Find by title: <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+        <input type="submit" value="Search" />
+        <a asp-page="./Index">Back to full List</a>
+    </p>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@(Model.TitleSort == "Title_desc" ? "Title" : "")">Title</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@(Model.AlbumSort == "Album_desc" ? "Album" : "")">Album</a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@(Model.AuthorSort == "Author_desc" ? "Author" : "")">Author</a>   
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@(Model.DateSort == "Date_desc" ? "Date" : "")">ReleaseYear</a>   
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@(Model.GenreSort == "Genre_desc" ? "Genre" : "")">Genre</a>   
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Music[0].Link)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Music) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Album)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
