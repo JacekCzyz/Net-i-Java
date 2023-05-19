@@ -37,8 +37,9 @@ namespace Aplikacja_webowa2.Pages.Muzyka
                 AuthorSort = String.IsNullOrEmpty(sortOrder) ? "Author_desc" : "Author";
                 TitleSort = String.IsNullOrEmpty(sortOrder) ? "Title_desc" : "Title";
                 AlbumSort = String.IsNullOrEmpty(sortOrder) ? "Album_desc" : "Album";
-                GenreSort = String.IsNullOrEmpty(sortOrder) ? "Genre_desc" : "";
-                DateSort = sortOrder == "Date" ? "Date_desc" : "Date";
+                GenreSort = String.IsNullOrEmpty(sortOrder) ? "Genre_desc" : "Genre";
+                //DateSort = sortOrder == "Date" ? "Date_desc" : "Date";
+                DateSort = String.IsNullOrEmpty(sortOrder) ? "Date_desc" : "Date";
 
 
                 IQueryable<Music> music = from s in _context.Music
