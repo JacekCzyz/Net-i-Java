@@ -1,0 +1,60 @@
+﻿@page
+@model Aplikacja_webowa2.Pages.Muzyka.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Music</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Music.ID" />
+            <div class="form-group">
+                <label asp-for="Music.Title" class="control-label"></label>
+                <input asp-for="Music.Title" class="form-control" />
+                <span asp-validation-for="Music.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Music.Album" class="control-label"></label>
+                <input asp-for="Music.Album" class="form-control" />
+                <span asp-validation-for="Music.Album" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Music.Author" class="control-label"></label>
+                <input asp-for="Music.Author" class="form-control" />
+                <span asp-validation-for="Music.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Music.ReleaseYear" class="control-label"></label>
+                <input asp-for="Music.ReleaseYear" class="form-control" />
+                <span asp-validation-for="Music.ReleaseYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Music.Genre" class="control-label"></label>
+                <input asp-for="Music.Genre" class="form-control" />
+                <span asp-validation-for="Music.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Music.Link" class="control-label"></label>
+                <input asp-for="Music.Link" class="form-control" />
+                <span asp-validation-for="Music.Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
